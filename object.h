@@ -2,7 +2,7 @@
 #define OBJECT_H
 #include <QtWidgets>
 
-#define step 1/24*1000
+#define step 1/100*1000
 class object
 {
 protected:
@@ -12,6 +12,7 @@ protected:
     double angle;
     QGraphicsScene* parent;
     QGraphicsItem* item;
+    QRectF shape;
 public:
     object();
     void gravity();

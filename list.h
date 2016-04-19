@@ -13,7 +13,7 @@ public:
     triangle* nValue2;
     circle* nValue3;
     list *pNext;
-    list* addToList(rectangle* nValue1=NULL,triangle* nValue2=NULL,circle* nValue3=NULL);
+    list* addToList(rectangle* nValue1 = NULL,triangle* nValue2 = NULL,circle* nValue3 = NULL);
 
 };
 

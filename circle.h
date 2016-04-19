@@ -5,7 +5,7 @@
 class circle : public object
 {
 public:
-    circle();
+    circle(QRectF rect, float x, float y, QGraphicsItem *it);
     int rad;
 };
 

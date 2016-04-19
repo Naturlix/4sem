@@ -14,8 +14,8 @@ rectangle::rectangle(QRectF rect, float x, float y, QGraphicsItem *it, bool brd)
 
 void rectangle::gravity(){
     if(!isBorder){
-        velocity = velocity + QPointF(0,9.81)*step;
-        center=center+velocity*step/1000000000;
+        velocity = velocity + QPointF(0,9.81)*step/10000;
+        center=center+velocity*step/1000;
         shape.translate(velocity*step);
         item->setPos(center);
     }

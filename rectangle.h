@@ -11,7 +11,6 @@ private:
     bool isBorder;
     int width;
     int height;
-    QRectF shape;
 private slots:
 
 };

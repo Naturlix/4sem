@@ -6,7 +6,7 @@
 class triangle : public object
 {
 public:
-    triangle();
+    triangle(QRectF rect, float x, float y, QGraphicsItem *it);
 private:
     int a;
 };

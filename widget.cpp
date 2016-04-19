@@ -30,11 +30,10 @@ void Widget::addtime(){
 
 void Widget::mousePressEvent(QMouseEvent *e)
 {
-    int i = 1;
-   //int i = rand()%4;
-   if(i == 1) spawnrect(e->localPos());
-   //if(i == 2) spawncirc(e->pos());
-   //if(i == 3) spawntriang(e->pos());
+    int i = rand()%3+1;
+    if(i == 1) spawnrect(e->localPos()/2);
+    if(i == 2) spawncirc(e->pos()/2);
+    if(i == 3) spawntriang(e->pos()/2);
 }
 
 void Widget::frame(){
@@ -60,12 +59,22 @@ void Widget::spawnrect(QPointF coord){
     next = next->addToList(ret);
 }
 
-void spawncirc(QPoint coord){
-
+void Widget::spawncirc(QPoint coord){
+    int r = rand()%100+30;
+    QRectF* temp = new QRectF(coord.x(),coord.y(),r,r);
+    QGraphicsItem* item = scene->addEllipse(*temp);
+    circle* circ = new circle(*temp,coord.x(),coord.y(), item);
+    next = next->addToList(NULL, NULL, circ);
 }
 
-void spawntriang(QPoint coord){
-
+void Widget::spawntriang(QPoint coord){
+    int a = rand()%100+30;
+    QRectF* temp = new QRectF(coord.x(),coord.y(),a,a*sqrt(3)/2);
+    QPolygonF triang;
+    triang << QPointF(coord.x()+a/2,coord.y()) << QPointF(coord.x(),coord.y()+a*sqrt(3)/2) << QPointF(coord.x()+a,coord.y()+a*sqrt(3)/2);
+    QGraphicsItem* item = scene->addPolygon(triang);
+    triangle* tri = new triangle(*temp,coord.x(),coord.y(), item);
+    next = next->addToList(NULL, tri, NULL);
 }
 
 void Widget::placeborders(){

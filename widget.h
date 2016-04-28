@@ -25,6 +25,7 @@ private:
     QGraphicsView* view;
     QTimer* timer;
     Ui::Widget *ui;
+    void collision(list* p1, list* p2);
     void frame();
     void mousePressEvent(QMouseEvent *event);
     void spawnrect(QPointF coord);

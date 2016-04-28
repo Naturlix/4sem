@@ -4,9 +4,12 @@
 
 class circle : public object
 {
+private:
+    double rad;
 public:
     circle(QRectF rect, float x, float y, QGraphicsItem *it);
-    int rad;
+    double Irad();
+    void move();
 };
 
 #endif // CIRCLE_H

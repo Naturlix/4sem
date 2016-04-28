@@ -18,7 +18,8 @@ SOURCES += main.cpp\
     rectangle.cpp \
     triangle.cpp \
     circle.cpp \
-    list.cpp
+    list.cpp \
+    geometry.cpp
 
 HEADERS  += widget.h \
     object.h \

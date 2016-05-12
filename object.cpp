@@ -7,16 +7,28 @@ object::object()
 
 
 void object::gravity(){
-    velocity = velocity + QPointF(0,9.81)*step/10000;
+    if(!isBorder){
+        apply_impulse(center.x(),center.y(),QPointF(0,1),mass*100*step);
+    }
 }
+
 void object::move(){
-    center=center+velocity*step/1000;
-    shape.translate(velocity*step/1000);
-    item->setPos(center);
+        center=center+velocity*step;
+        angle += W*step;
+        shape->setPos(shape->pos() + velocity*step);
+        shape->setTransformOriginPoint(center);
+        shape->setRotation(shape->rotation() + W*step);
+        item->moveBy(velocity.x()*step/scale,velocity.y()*step/scale);
+        item->setTransformOriginPoint(center/scale);
+        item->setRotation(shape->rotation());
 }
 
 QPointF object::Icenter(){
     return center;
+}
+
+double object::Iangle(){
+    return angle;
 }
 
 double object::Iw(){
@@ -35,7 +47,7 @@ QPointF object::Ivel(){
     return velocity;
 }
 
-QRectF object::Ishape(){
+QGraphicsRectItem* object::Ishape(){
     return shape;
 }
 

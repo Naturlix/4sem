@@ -5,13 +5,7 @@
 class rectangle : public object
 {
 public:
-    rectangle(QRectF, float x, float y, QGraphicsItem* it,bool brd);
-    void gravity();
-private:
-
-    bool isBorder;
-    int width;
-    int height;
+    rectangle(QGraphicsRectItem* rect, float x, float y, QGraphicsItem* it, bool brd, double a, double b);
 private slots:
 
 };

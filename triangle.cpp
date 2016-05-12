@@ -1,8 +1,8 @@
 #include "triangle.h"
 
-triangle::triangle(QRectF rect, float x, float y, QGraphicsItem *it)
+triangle::triangle(QGraphicsRectItem *rect, float x, float y, QGraphicsItem *it,double h)
 {
-    a=rect.width();
+    a=h;
     shape = rect;
     center = QPointF(x,y);
     angle = 0;

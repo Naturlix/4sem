@@ -7,9 +7,8 @@ class circle : public object
 private:
     double rad;
 public:
-    circle(QRectF rect, float x, float y, QGraphicsItem *it);
+    circle(QGraphicsRectItem* rect, float x, float y, QGraphicsItem *it, double r);
     double Irad();
-    void move();
 };
 
 #endif // CIRCLE_H
